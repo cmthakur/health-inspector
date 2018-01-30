@@ -25,6 +25,10 @@ module HealthInspector
         end
       end
 
+      def self.slug
+        to_s.split('::').last.downcase
+      end
+
       def inspect!
         raise NotImplementedError
       end
