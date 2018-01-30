@@ -5,7 +5,7 @@ class Supervisor
     @services = ServiceLoader.new.services
   end
 
-  def check
+  def inspect
     {
 
     }
