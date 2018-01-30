@@ -4,7 +4,7 @@ require 'health_inspector/version'
 require 'health_inspector/service_loader'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'health_inspector'
+  spec.name          = 'health-inspector'
   spec.version       = HealthInspector::VERSION
   spec.authors       = ['cmthakur', 'rojesh']
   spec.email         = ['cmthakur.r2s@gmail.com', 'rojace2011@gmail.com']
