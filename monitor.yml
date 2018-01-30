@@ -1,0 +1,27 @@
+---
+application: documentation
+framework: sinatra
+
+# processes:
+#   unicorn:
+#     cmd: ""
+#   sidekiq:
+#     cmd: ""
+#   hutch:
+#     cmd: ""
+
+dependencies:
+  - mongo
+  - pg
+
+# dependent services
+services:
+  postgres:
+    config_path: config/database.yml
+    name: 'MySql Database'
+    config:
+      adapter: mysql2
+      host: <%= ENV['MYSQL_DB_HOST'] %>
+      database: <%= ENV['MYSQL_DB_NAME'] %>
+      username: <%= ENV['MYSQL_DB_USERNAME'] %>
+      password: <%= ENV['MYSQL_DB_PASSWORD'] %>
