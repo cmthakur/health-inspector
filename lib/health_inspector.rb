@@ -3,6 +3,8 @@ require 'health_inspector/service_loader'
 require 'health_inspector/supervisor'
 
 module HealthInspector
+  class ConfigurationMissingError < StandardError; end
+
   extend self
 
   def load!
@@ -17,6 +19,10 @@ module HealthInspector
   end
 
   def inspect(services = nil)
+    unless File.exist?(ServiceLoader.new.path)
+      raise(ConfigurationMissingError, 'Configuration file not found') && return
+    end
+
     Supervisor.new(services).inspect
   end
 end
