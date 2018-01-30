@@ -12,16 +12,16 @@ module HealthInspector
         configs = config_data.fetch('config', {})
 
         @configuration = if !configs.empty?
-          configs
-        elsif !config_path.nil?
-          config_full_path = "#{Dir.pwd}/#{config_path}"
-          if File.exist?(config_full_path)
-            YAML.safe_load(ERB.new(File.read(@path)).result)
-          end
+                           configs
+                         elsif !config_path.nil?
+                           config_full_path = "#{Dir.pwd}/#{config_path}"
+                           if File.exist?(config_full_path)
+                             YAML.safe_load(ERB.new(File.read(@path)).result)
+                           end
         end
 
         if @configuration.empty? || !@configuration.is_a?(Hash)
-          raise ConfigurationMissingError.new("No config provided for #{service_name}")
+          raise ConfigurationMissingError, "No config provided for #{service_name}"
         end
       end
 

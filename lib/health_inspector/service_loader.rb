@@ -10,6 +10,7 @@ class ServiceLoader
 
   def monitor_configs
     @path ||= "#{Dir.pwd}/monitor.yml"
+    return {} unless File.exist?(@path)
     YAML.safe_load(ERB.new(File.read(@path)).result)
   end
 

@@ -6,7 +6,7 @@ require 'health_inspector/service_loader'
 Gem::Specification.new do |spec|
   spec.name          = 'health-inspector'
   spec.version       = HealthInspector::VERSION
-  spec.authors       = ['cmthakur', 'rojesh']
+  spec.authors       = %w[cmthakur rojesh]
   spec.email         = ['cmthakur.r2s@gmail.com', 'rojace2011@gmail.com']
 
   spec.summary       = 'A Ruby library which which provides a health checking and monitoring of various services associated with given application.'

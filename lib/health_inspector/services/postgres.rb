@@ -17,18 +17,17 @@ module HealthInspector
       end
 
       def inspect!
-        begin
-          con = PG.connect(:host => configuration[:hostname],
-                           :port => configuration[:port],
-                           :dbname => configuration[:database],
-                           :user => configuration[:username],
-                           :password => configuration[:password])
-          return if con
-        rescue
-          raise DatabaseException.new("Could not connect to postgres") and return
-        ensure
-          con.close if con
-        end
+        con = PG.connect(host: configuration['hostname'],
+                         port: configuration['port'] || 5432,
+                         dbname: configuration['database'],
+                         user: configuration['username'],
+                         password: configuration['password'])
+
+        return { status: 'OK' } if con
+      rescue
+        raise DatabaseException, 'Could not connect to postgres' && return
+      ensure
+        con.close if con
       end
     end
   end
