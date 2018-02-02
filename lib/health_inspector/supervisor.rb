@@ -1,8 +1,8 @@
 class Supervisor
   attr_accessor :services
 
-  def initialize
-    @services = ServiceLoader.services
+  def initialize(args: )
+    @services = args || ServiceLoader.services
   end
 
   def inspect
