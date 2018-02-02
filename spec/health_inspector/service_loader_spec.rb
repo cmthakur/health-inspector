@@ -1,12 +1,17 @@
 RSpec.describe ServiceLoader do
-  let(:args) { { 'path' => 'spec/fixtures/monitor.yml' } }
-  let(:service_loader) { ServiceLoader.new(args) }
+  before do
+    ENV['HEALTH_INSPECTOR_PATH'] = 'spec/fixtures/monitor.yml'
+  end
+
+  let(:service_loader) { described_class }
 
   describe '#configurations' do
     subject { service_loader.configurations }
 
     context 'with default config path' do
-      let(:args) { {} }
+      before do
+        ENV['HEALTH_INSPECTOR_PATH'] = nil
+      end
 
       it 'reads configs from current directory monitor.yml' do
         expect(subject).not_to be_empty
@@ -21,7 +26,9 @@ RSpec.describe ServiceLoader do
       end
 
       context 'path does not exists' do
-        let(:args) { { 'path' => 'config.yml' } }
+        before do
+          ENV['HEALTH_INSPECTOR_PATH'] = 'spec/fixtures/noconfig.yml'
+        end
 
         it 'returns blank configurations ' do
           expect(subject).to eq({})

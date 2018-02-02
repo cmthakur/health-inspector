@@ -2,22 +2,25 @@ require 'yaml'
 require 'erb'
 
 class ServiceLoader
-  attr_accessor :path, :services
+  attr_accessor :path
 
-  def initialize(args = {})
-    @path = args.fetch('path', nil) || "#{Dir.pwd}/monitor.yml"
+  def initialize
+    @path = ENV['HEALTH_INSPECTOR_PATH'] || "#{Dir.pwd}/monitor.yml"
   end
 
-  def configurations
-    return {} unless File.exist?(@path)
-    YAML.safe_load(ERB.new(File.read(@path)).result)
-  end
+  class << self
+    def configurations
+      loader = new
+      return {} unless File.exist?(loader.path)
+      YAML.safe_load(ERB.new(File.read(loader.path)).result)
+    end
 
-  def services
-    configurations.fetch('services', {})
-  end
+    def services
+      configurations.fetch('services', {})
+    end
 
-  def dependencies
-    configurations.fetch('dependencies', {})
+    def dependencies
+      configurations.fetch('dependencies', {})
+    end
   end
 end

@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
 
   # Add dependent gems listed in monitor.yml file
-  ServiceLoader.new.dependencies.each do |dependency|
+  ServiceLoader.dependencies.each do |dependency|
     spec.add_dependency dependency
   end
 end

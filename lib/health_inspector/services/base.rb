@@ -7,7 +7,7 @@ module HealthInspector
 
       def initialize
         service_name = self.class.slug
-        config_data = ServiceLoader.new.services.fetch(service_name, {})
+        config_data = ServiceLoader.services.fetch(service_name, {})
         config_path = config_data.fetch('config_path', nil)
         configs = config_data.fetch('config', {})
 

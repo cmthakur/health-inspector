@@ -8,7 +8,7 @@ module HealthInspector
   extend self
 
   def load!
-    services = ServiceLoader.new.services.keys
+    services = ServiceLoader.services.keys
     services.each do |service|
       require "health_inspector/services/#{service}"
     end
