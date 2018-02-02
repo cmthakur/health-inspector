@@ -18,7 +18,7 @@ module HealthInspector
     VERSION
   end
 
-  def inspect(services = nil)
+  def inspect!(services = nil)
     unless File.exist?(ServiceLoader.new.path)
       raise(ConfigurationMissingError, 'Configuration file not found') && return
     end
