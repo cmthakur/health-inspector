@@ -5,19 +5,19 @@ class ServiceLoader
   attr_accessor :path, :services
 
   def initialize(args = {})
-    @path = args['path'] || "#{Dir.pwd}/monitor.yml"
+    @path = args.fetch('path', nil) || "#{Dir.pwd}/monitor.yml"
   end
 
-  def monitor_configs
+  def configurations
     return {} unless File.exist?(@path)
     YAML.safe_load(ERB.new(File.read(@path)).result)
   end
 
   def services
-    monitor_configs.fetch('services', {})
+    configurations.fetch('services', {})
   end
 
   def dependencies
-    monitor_configs.fetch('dependencies', {})
+    configurations.fetch('dependencies', {})
   end
 end
