@@ -18,12 +18,11 @@ module HealthInspector
     VERSION
   end
 
-  def inspect(services:)
+  def inspect(services = nil)
     unless File.exist?(ServiceLoader.new.path)
       raise(ConfigurationMissingError, 'Configuration file not found') && return
     end
-
-    Supervisor.new(services).inspect
+    Supervisor.new(services).inspect!
   end
 end
 

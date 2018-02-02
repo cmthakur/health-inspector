@@ -7,7 +7,7 @@ HealthInspector is a Ruby library which which provides a health checking and mon
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'health_inspector'
+gem 'health-inspector'
 ```
 
 And then execute:
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-    HealthInspector.inspect
+    HealthInspector.inspect!
 
 ## Development
 

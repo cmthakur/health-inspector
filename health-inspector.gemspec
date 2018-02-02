@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'A Ruby library which which provides a health checking and monitoring of various services associated with given application.'
   spec.description   = 'A Ruby library which which provides a health checking and monitoring of various services associated with given application.'
-  spec.homepage      = 'https://github.com/cmthakur/health_inspector'
+  spec.homepage      = 'https://github.com/cmthakur/health-inspector'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
