@@ -18,10 +18,10 @@ module HealthInspector
 
       def inspect!
         connection = PG.connect(host: configuration['hostname'],
-                         port: configuration['port'] || 5432,
-                         dbname: configuration['database'],
-                         user: configuration['username'],
-                         password: configuration['password'])
+                                port: configuration['port'] || 5432,
+                                dbname: configuration['database'],
+                                user: configuration['username'],
+                                password: configuration['password'])
 
         return { status: 'OK', timestamp: Time.now.utc } if connection
       rescue

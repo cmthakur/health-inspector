@@ -20,6 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
+    require 'health_inspector'
     HealthInspector.inspect!
 
 ## Development
@@ -31,10 +32,29 @@ Or install it yourself as:
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 
+## Example `monitor.yml` file
+
+```
+  ---
+  application: TestApp
+  framework: sinatra
+  dependencies:
+    - pg
+  services:
+    postgres:
+      config_path: config/database.yml
+      name: 'postgres database'
+      config:
+        adapter: postgresql
+        host: localhost
+        database: mydb
+        username: postgres
+        password:
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/cmthakur/health_inspector. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/cmthakur/health-inspector. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
