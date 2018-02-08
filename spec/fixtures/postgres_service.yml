@@ -1,0 +1,14 @@
+---
+application: PG-Test-Configs
+framework: sinatra
+dependencies:
+  - pg
+services:
+  postgres:
+    name: 'PostgreSql'
+    config:
+      adapter: postgresql
+      host: localhost
+      username: postgresql
+      database: test_db
+      password:
