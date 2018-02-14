@@ -22,10 +22,9 @@ module HealthInspector
                                 dbname: configuration['database'],
                                 user: configuration['username'],
                                 password: configuration['password'])
-
-        return { status: 'OK', timestamp: Time.now.utc } if connection
+        return { status: 'OK', timestamp: Time.now.utc.to_i } if connection
       rescue => e
-        raise DatabaseException, "Could not connect to postgres. Error: #{e.inspect}" && return
+        raise DatabaseException, "Could not connect to postgres. Error: #{e.inspect}"
       ensure
         connection.close if connection
       end

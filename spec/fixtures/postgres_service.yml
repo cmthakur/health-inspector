@@ -9,6 +9,6 @@ services:
     config:
       adapter: postgresql
       host: localhost
-      username: postgresql
+      username: postgres
       database: test_db
       password:

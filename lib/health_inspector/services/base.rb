@@ -10,7 +10,6 @@ module HealthInspector
         config_data = ServiceLoader.services.fetch(service_name, {})
         config_path = config_data.fetch('config_path', nil)
         configs = config_data.fetch('config', {})
-
         @configuration = if !configs.empty?
                            configs
                          elsif !config_path.nil?
@@ -19,7 +18,7 @@ module HealthInspector
                              YAML.safe_load(ERB.new(File.read(@path)).result)
                            end
         end
-
+        @configuration ||= {}
         if @configuration.empty? || !@configuration.is_a?(Hash)
           raise ConfigurationMissingError, "No config provided for #{service_name}"
         end
