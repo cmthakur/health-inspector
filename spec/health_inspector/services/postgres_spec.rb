@@ -48,8 +48,9 @@ RSpec.describe HealthInspector::Services::Postgres do
     end
 
     context 'database connection is not successful' do
-      it 'returns DatabaseException' do
-        expect { subject }.to raise_error(HealthInspector::Services::DatabaseException)
+      it 'returns status: FAILED' do
+        pg_check = subject
+        expect(pg_check[:status]).to eql('FAILED')
       end
     end
   end
