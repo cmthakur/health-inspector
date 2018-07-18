@@ -1,0 +1,14 @@
+---
+application: health-inspector
+framework: sinatra
+dependencies:
+  - pg
+services:
+  postgres:
+    name: 'PostgreSql'
+    config:
+      adapter: postgresql
+      host: localhost
+      username: postgres
+      database: test_db
+      password:

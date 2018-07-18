@@ -9,5 +9,6 @@
 Gemfile.lock
 monitor.yml
 inspector.yml
+.DS_Store
 # rspec failure tracking
 .rspec_status

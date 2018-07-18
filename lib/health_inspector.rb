@@ -5,7 +5,7 @@ require 'health_inspector/supervisor'
 module HealthInspector
   class ConfigurationMissingError < StandardError; end
 
-  extend self
+  module_function
 
   def load_services!
     services = ServiceLoader.services.keys

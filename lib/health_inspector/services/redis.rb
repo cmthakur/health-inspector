@@ -41,7 +41,7 @@ module HealthInspector
         redis_connection.del('health_monitor_redis')
 
         return { status: 'OK', timestamp: Time.now.utc.to_i } if redis_connection
-      rescue => e
+      rescue StandardError => e
         raise RedisException, "Could not connect to redis-server. Error: #{e.inspect}" && return
       ensure
         redis_connection.disconnect! if redis_connection

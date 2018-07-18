@@ -1,6 +1,6 @@
 RSpec.describe ServiceLoader do
   before do
-    ENV['HEALTH_INSPECTOR_PATH'] = 'spec/fixtures/monitor.yml'
+    ENV['HEALTH_INSPECTOR_PATH'] = 'spec/fixtures/postgres_service.yml'
   end
 
   let(:service_loader) { described_class }
@@ -43,7 +43,13 @@ RSpec.describe ServiceLoader do
     it 'list all services mentioned in config path' do
       expect(subject).to eq('postgres' => {
                               'name' => 'PostgreSql',
-                              'config' => { 'adapter' => 'postgresql' }
+                              'config' => {
+                                'adapter' => 'postgresql',
+                                'host' => 'localhost',
+                                'username' => 'postgres',
+                                'database' => 'test_db',
+                                'password' => nil
+                              }
                             })
     end
   end
