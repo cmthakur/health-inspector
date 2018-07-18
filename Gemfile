@@ -10,3 +10,7 @@ group :test, :development do
   gem 'pry'
   gem 'redis'
 end
+
+group :test do
+  gem 'simplecov', require: false
+end
