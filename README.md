@@ -1,6 +1,6 @@
 # HealthInspector
-
-HealthInspector is a Ruby library which which provides a health checking and monitoring of various services associated with given application.
+[![Build Status](https://api.travis-ci.org/cmthakur/health-inspector.svg?branch=master)](http://travis-ci.org/cmthakur/health-inspector)
+[![Code Climate](https://codeclimate.com/github/cmthakur/health-inspector.svg)](https://codeclimate.com/github/cmthakur/health-inspector)
 
 ## Installation
 
