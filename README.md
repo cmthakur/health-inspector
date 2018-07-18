@@ -27,6 +27,7 @@ Or install it yourself as:
 
   - Checkout out the repo
   - Run `bin/setup` to install dependencies
+  - Run `./configure` to copy sample monitor.yml file
   - Run `rake spec` to run the tests
   - Run `bin/console` for an interactive prompt that will allow you to experiment.
 
@@ -36,20 +37,27 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 ```
   ---
-  application: TestApp
+  application: health-inspector
   framework: sinatra
   dependencies:
     - pg
+    - redis
   services:
     postgres:
-      config_path: config/database.yml
-      name: 'postgres database'
+      name: 'PostgreSql'
       config:
         adapter: postgresql
         host: localhost
-        database: mydb
         username: postgres
+        database: media_vision_dev
         password:
+
+    redis:
+      name: 'RedisServer'
+      config:
+        host: 'localhost'
+        port: 6379
+        db: 10
 ```
 
 ## Contributing

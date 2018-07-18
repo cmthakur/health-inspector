@@ -3,6 +3,7 @@ application: health-inspector
 framework: sinatra
 dependencies:
   - pg
+  - redis
 services:
   postgres:
     name: 'PostgreSql'
@@ -10,5 +11,12 @@ services:
       adapter: postgresql
       host: localhost
       username: postgres
-      database: test_db
+      database: media_vision_dev
       password:
+
+  redis:
+    name: 'RedisServer'
+    config:
+      host: 'localhost'
+      port: 6379
+      db: 10
