@@ -9,6 +9,7 @@ group :test, :development do
   gem 'pg'
   gem 'pry'
   gem 'redis'
+  gem 'hutch'
 end
 
 group :test do
